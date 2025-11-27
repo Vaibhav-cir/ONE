@@ -1,13 +1,12 @@
-console.log("Hello via Bun!");
 import express from "express";
-import { CreativeChatSchema } from "./types";
+import { CreateChatSchema } from "./types";
 
 const app = express();
 
 app.use(express.json());
 
 app.post("/chat", (req, res) => {
-    const {success, data} = CreativeChatSchema.safeParse{req.body};
+    const {success, data} = CreateChatSchema.safeParse{req.body};
 
     if(!success) {
         res.status(411).json({
@@ -16,7 +15,7 @@ app.post("/chat", (req, res) => {
         return
     }
     const {message} = data;
-    
+
 
 })
 
